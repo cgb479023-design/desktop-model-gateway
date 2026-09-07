@@ -184,6 +184,75 @@ say what you'd use it for**; that's the fastest way to get our attention.
 
 ---
 
+## Commercial
+
+Three ways to get this running. Pick by one question: **do you have someone
+who can own the box?**
+
+|  | Self-host | Deployment | Managed |
+| --- | --- | --- | --- |
+| What it is | write-up + code access | we build it on your hardware | we keep it running |
+| Right for | you have an IT person | you want it done right, once | nobody can own it |
+| Effort | ~1 week of your time | 1–2 days of ours | ongoing |
+| Price | free | ¥9,800 one-time | ¥1,980/month |
+
+### Self-host — free
+
+Everything in the write-up. You install it, you tune it, you own the 2–4 h/week
+of ops for the first two months (§11 of the tutorial is honest about this).
+
+### Deployment — one-time
+
+We stand it up on hardware you already own, or spec the box before you buy.
+
+- **Hardware spec** — VRAM sizing worked out from the model mix you actually need, not a guess
+- **Engine tuning** — model mix, `--ctx-size`, `--cache-ram`, slot layout (`-np`), Vulkan flags
+- **Gateway** — per-user keys, RPM/TPM/RPD quotas, and a concurrency cap derived from a real load test on *your* hardware
+- **Client rollout** — Codex Desktop, WorkBuddy AI, TRAE, plus the per-client config traps in §8
+- **Self-healing** — scheduled tasks, gateway watchdog, slot-deadlock guard
+- **Capacity report** — your measured throughput peak and where it falls off
+- 30 days of follow-up tuning
+
+Not included: the hardware itself, model licensing review, ongoing operations.
+
+### Managed — monthly
+
+- Quarterly capacity and quota review against real usage
+- New model deployment when you want one
+- Watchdog and slot-guard maintenance
+- Priority response when something wedges at 2am
+
+### What we don't sell
+
+Hardware (buy it yourself, we'll spec it), model weights, or a guarantee that
+your workload fits on an iGPU — some don't, and we'd rather tell you before
+you buy the machine.
+
+### How to set the price
+
+If you're deciding what to charge rather than reading our number, anchor on
+what the alternative costs:
+
+```
+year-1 cloud spend = headcount × monthly AI spend per seat × 12
+```
+
+A one-time deployment fee should be a small fraction of that. A monthly
+managed fee should be a fraction of one engineer's time, because that's
+exactly what it replaces.
+
+### Talk to us
+
+[Open an issue](https://github.com/cgb479023-design/desktop-model-gateway/issues)
+and say what you'd use it for — hardware you already have, headcount, and the
+models you need. That's enough for us to tell you whether this fits, including
+the cases where it doesn't.
+
+We don't publish a sales inbox on purpose: issues are public, so other people
+with the same setup get the answer too.
+
+---
+
 ## Feedback
 
 Issues welcome — especially measured numbers from different hardware. If your load-test curve doesn't look like ours, we want to know.
