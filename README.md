@@ -147,7 +147,7 @@ The README is the index. The tutorial is the substance — hardware selection, V
 - **[中文完整教程](docs/tutorial-zh.md)** — 《用一台 Windows 撑起全所的私有 AI》
 - **[English full tutorial](docs/tutorial-en.md)** — *Running a Private AI Stack for a Whole Office on One Windows Box*
 
-Who it's for: professional services firms and small engineering teams (10–50 people) with a big-memory Windows host who need their data to stay on the network.
+Who it's for: professional services firms and small engineering teams (up to ~20 people, peak concurrency 8) with a big-memory Windows host who need their data to stay on the network.
 
 Who it's not for: 200B+ dense models, single-request latency optimization, or teams of 1–2 (just use Ollama).
 
